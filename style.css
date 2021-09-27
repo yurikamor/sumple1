@@ -15,7 +15,7 @@ body{
 
 a{
     text-decoration: none;
-    color: #1e0606;
+    color: inherit;
 }
 
 img{
@@ -64,9 +64,29 @@ h2{
     margin: 0 auto;
 }
 
-.main-navi li:hover{
+.main-navi li a{
+    /*border-bottom: 2px solid transparent;*/
+    transition: 0.3s;
+    display: block;
+}
+
+.main-navi li a:after{
+    content: "";
+    height: 2px;
+    background: #bfa34c;
+    display: block;
+    width: 0;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.main-navi li a:hover:after{
+    width: 100%;
+}
+
+.main-navi li a:hover{
     color: #bfa34c;
-    border-bottom: 2px solid #bfa34c;
+    border-color: #bfa34c;
 }
 
 .main-image{
@@ -81,25 +101,40 @@ h2{
     background-image: url(image/key02.jpg);
     width: 10%;
     position: relative;
+    background-size: cover;
 }
 
-.prev{
+.prev img{
     position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
 }
 
 .image-center{
     background-image: url(image/key01.jpg);
     width: 80%;
+    background-size: cover;
 }
 
 .image-right{
     background-image: url(image/key03.jpg);
     width: 10%;
+    background-size: cover;
+}
+
+.main-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .main{
     display: flex;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
 .main-box1{
@@ -203,3 +238,149 @@ h2{
     color: white;
     text-align: center;
 }
+
+.footer-1{
+    margin-top: 118px;
+    background: white;
+    position: relative;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.curcle{
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -45px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.footer-info{
+    position: relative;
+    display: flex;
+    margin-left: 342px;
+   z-index: 10;
+}
+
+.footer-rogo{
+    margin-right: 55px;
+}
+
+.footer-menu{
+   display: flex;
+   margin-left: 343px;
+}
+
+.footer-menu p{
+    margin-left: 45px;
+}
+
+.footer-menu p:after{
+    content: " ";
+    height: 30px;
+    width: 1px;
+    background: #f3f3f3;
+}
+
+.footer-2{
+    background: white;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+
+
+
+/*==================================================
+スライダーのためのcss
+===================================*/
+.slider {
+    position:relative;
+	z-index: 1;
+	/*↑z-indexの値をh1のz-indexの値よりも小さくして背景に回す*/
+	height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+}
+/*　背景画像設定　*/
+
+.slider-item01 {
+    background:url(image/key01.jpg);
+}
+
+.slider-item02 {
+    background:url(image/key01.jpg);
+}
+
+.slider-item03 {
+    background:url(image/key01.jpg);
+}
+
+.slider-item {
+    width: 100%;/*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
+    height:100vh;/*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+    background-repeat: no-repeat;/*背景画像をリピートしない*/
+    background-position: center;/*背景画像の位置を中央に*/
+    background-size: cover;/*背景画像が.slider-item全体を覆い表示*/
+}
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+	z-index: 3;
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #ccc;/*矢印の色*/
+    border-right: 2px solid #ccc;/*矢印の色*/
+    height: 25px;
+    width: 25px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left:2.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right:2.5%;
+    transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+	position: relative;
+	z-index: 3;
+    text-align:center;
+	margin:-50px 0 0 0;
+}
+
+.slick-dots li {
+    display:inline-block;
+	margin:0 5px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
+}
+
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
+
+
